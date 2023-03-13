@@ -9,7 +9,7 @@ require (
 	github.com/prometheus/client_golang v1.14.0
 	github.com/rakyll/statik v0.1.7
 	github.com/rs/zerolog v1.28.0
-	github.com/sirjager/rpcs v0.0.0-20230313065207-7c0a12f5ee4e
+	github.com/sirjager/rpcs v0.0.0-20230313115938-70787ef03716
 	github.com/spf13/viper v1.14.0
 	golang.org/x/crypto v0.4.0
 	google.golang.org/grpc v1.53.0
