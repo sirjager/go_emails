@@ -8,8 +8,6 @@ type Config struct {
 	Grpc string `mapstructure:"GRPC_PORT"`
 	Http string `mapstructure:"HTTP_PORT"`
 
-	TokensAddr string `mapstructure:"TOKENS_GRPC_ADDR"`
-
 	SmtpHost  string `mapstructure:"SMTP_HOST"`
 	SmtpPort  string `mapstructure:"SMTP_PORT"`
 	SmtpEmail string `mapstructure:"SMTP_EMAIL"`

@@ -25,19 +25,6 @@ WORKDIR /app
 
 RUN apk add libc6-compat
 
-ENV GRPC_PORT=8030
-ENV HTTP_PORT=8031
-
-ENV TOKENS_GRPC_ADDR=localhost:8020
-
-ENV SMTP_HOST=smtp.gmail.com
-ENV SMTP_PORT=587
-ENV SMTP_EMAIL=email@gmail.com
-ENV SMTP_PASS=password
-
-ENV API_HEADER=api-secret
-ENV API_SECRET=emails
-
 EXPOSE 8030
 EXPOSE 8031
 
