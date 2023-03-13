@@ -1,0 +1,162 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Emails Api",
+    "version": "0.2",
+    "contact": {
+      "name": "Ankur Kumar",
+      "url": "https://github.com/sirjager"
+    }
+  },
+  "tags": [
+    {
+      "name": "Emails"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Api Health",
+        "description": "use this route to check if api is working or not",
+        "operationId": "Emails_EmailsHealth",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/emailsEmailsHealthResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "System"
+        ]
+      }
+    },
+    "/v1/send": {
+      "post": {
+        "summary": "Send Email",
+        "description": "use this route to send email",
+        "operationId": "Emails_EmailsSendMail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/emailsEmailsSendMailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/emailsEmailsSendMailRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Emails"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "emailsEmailsHealthResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "unsafe": {
+          "type": "boolean"
+        },
+        "protected": {
+          "type": "boolean"
+        },
+        "uptime": {
+          "type": "string"
+        },
+        "started": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "emailsEmailsSendMailRequest": {
+      "type": "object",
+      "properties": {
+        "sender": {
+          "type": "string"
+        },
+        "receiver": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      }
+    },
+    "emailsEmailsSendMailResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package emails;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+option go_package = "github.com/sirjager/rpcs/emails";
+
+message EmailsHealthRequest {}
+
+message EmailsHealthResponse {
+  string status = 1;
+  bool unsafe = 2;
+  bool protected = 3;
+  google.protobuf.Duration uptime = 4;
+  google.protobuf.Timestamp started = 5;
+  google.protobuf.Timestamp timestamp = 6;
+}
